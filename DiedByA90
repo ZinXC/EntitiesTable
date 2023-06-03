@@ -19,4 +19,5 @@ UIS.InputBegan:Connect(function(input,gameProcessedEvent)
 	wait(2.5)
 		character.Humanoid.Health = 0
 		firesignal(game:GetService("ReplicatedStorage").EntityInfo.DeathHint.OnClientEvent, {"Die By A-90?", "Bruh", "ZinXC Didn't want you to die"},'Yellow')
+		end
 end)
