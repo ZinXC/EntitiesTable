@@ -4,7 +4,7 @@ local character = player.Character
 
 UIS.InputBegan:Connect(function(input,gameProcessedEvent)
 	if input.KeyCode == Enum.KeyCode.W then
-	wait(0.8)
+	wait(2.5)
 		character.Humanoid.Health = 0
 		firesignal(game:GetService("ReplicatedStorage").EntityInfo.DeathHint.OnClientEvent, {"Die By A-90?", "Bruh", "ZinXC Didn't want you to die"},'Yellow')
 	end
