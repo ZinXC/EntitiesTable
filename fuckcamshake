@@ -1,0 +1,32 @@
+						local function GetGitSound(GithubSnd,SoundName)
+					local url=GithubSnd
+					if not isfile(SoundName..".mp3") then
+						writefile(SoundName..".mp3", game:HttpGet(url))
+					end
+					local sound=Instance.new("Sound")
+					sound.SoundId=(getcustomasset or getsynasset)(SoundName..".mp3")
+					return sound
+				end
+						local END = GetGitSound("https://github.com/ZinXC/EntitiesTable/blob/main/enda60.mp3?raw=true","b") END.Parent = workspace
+						END.Volume = 10
+						END:Play()
+				
+local CameraShaker = require(game.ReplicatedStorage.CameraShaker)
+local camara = game.Workspace.CurrentCamera
+local camShake = CameraShaker.new(Enum.RenderPriority.Camera.Value, function(shakeCf)
+	camara.CFrame = camara.CFrame * shakeCf
+end)
+camShake:Start()
+camShake:ShakeOnce(5,20,0.1,20,2,20)
+
+
+local TweenService = game:GetService("TweenService")
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(0),{TintColor = Color3.fromRGB(0, 0, 0),})
+TW:Play()
+wait(1)
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(35),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW:Play()
+local Reboundcolor = Instance.new("ColorCorrectionEffect",game.Lighting) game.Debris:AddItem(Reboundcolor,24)
+				Reboundcolor.Name = "Despawn"
+				Reboundcolor.TintColor = Color3.fromRGB(255, 0, 4) Reboundcolor.Saturation = -0.7 Reboundcolor.Contrast = 0.2
+				game.TweenService:Create(Reboundcolor,TweenInfo.new(15),{TintColor = Color3.fromRGB(255, 255, 255),Saturation = 0, Contrast = 0}):Play()
