@@ -48,8 +48,32 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
+wait(2)
+function createSound(id, volume, parent)
+	assert(id, "sound id wasn't given")
+	id = tostring(id):gsub("%D", "") --only keeping the numbers
+	assert(id ~= "", "sound id isn't a number") 
+	volume = volume or 2 --0.5 is the default volume
+	parent = parent or workspace --workspace is the default parent
+	local Sound = Instance.new("Sound") 
+	Sound.SoundId = "rbxassetid://"..id 
+	Sound.Volume = volume 
+	Sound.Parent = parent 
+	return Sound 
+end
+local Sound = createSound("rbxassetid://4398878054")
+Sound.Looped = false 
+Sound:Play() 
+game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(255, 0, 0)
+game.Lighting.MainColorCorrection.Contrast = 0.2
+game.Lighting.MainColorCorrection.Saturation = -0.7
+local tween = game:GetService("TweenService")
+tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
+tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
+local TweenService = game:GetService("TweenService")
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW:Play()
 wait(6)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -74,7 +98,7 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
-wait(8)
+wait(6)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -99,8 +123,7 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
-wait(8)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(5)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -125,7 +148,7 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
-wait(8)
+wait(4)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -150,58 +173,7 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
-wait(8)
-function createSound(id, volume, parent)
-	assert(id, "sound id wasn't given")
-	id = tostring(id):gsub("%D", "") --only keeping the numbers
-	assert(id ~= "", "sound id isn't a number") 
-	volume = volume or 2 --0.5 is the default volume
-	parent = parent or workspace --workspace is the default parent
-	local Sound = Instance.new("Sound") 
-	Sound.SoundId = "rbxassetid://"..id 
-	Sound.Volume = volume 
-	Sound.Parent = parent 
-	return Sound 
-end
-local Sound = createSound("rbxassetid://4398878054")
-Sound.Looped = false 
-Sound:Play() 
-game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(255, 0, 0)
-game.Lighting.MainColorCorrection.Contrast = 0.2
-game.Lighting.MainColorCorrection.Saturation = -0.7
-local tween = game:GetService("TweenService")
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
-local TweenService = game:GetService("TweenService")
-local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
-TW:Play()
-wait(8)
-function createSound(id, volume, parent)
-	assert(id, "sound id wasn't given")
-	id = tostring(id):gsub("%D", "") --only keeping the numbers
-	assert(id ~= "", "sound id isn't a number") 
-	volume = volume or 2 --0.5 is the default volume
-	parent = parent or workspace --workspace is the default parent
-	local Sound = Instance.new("Sound") 
-	Sound.SoundId = "rbxassetid://"..id 
-	Sound.Volume = volume 
-	Sound.Parent = parent 
-	return Sound 
-end
-local Sound = createSound("rbxassetid://4398878054")
-Sound.Looped = false 
-Sound:Play() 
-game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(255, 0, 0)
-game.Lighting.MainColorCorrection.Contrast = 0.2
-game.Lighting.MainColorCorrection.Saturation = -0.7
-local tween = game:GetService("TweenService")
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
-tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
-local TweenService = game:GetService("TweenService")
-local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
-TW:Play()
-wait(10)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(3)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -276,8 +248,32 @@ tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 
 local TweenService = game:GetService("TweenService")
 local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
 TW:Play()
-wait(9)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(5)
+function createSound(id, volume, parent)
+	assert(id, "sound id wasn't given")
+	id = tostring(id):gsub("%D", "") --only keeping the numbers
+	assert(id ~= "", "sound id isn't a number") 
+	volume = volume or 2 --0.5 is the default volume
+	parent = parent or workspace --workspace is the default parent
+	local Sound = Instance.new("Sound") 
+	Sound.SoundId = "rbxassetid://"..id 
+	Sound.Volume = volume 
+	Sound.Parent = parent 
+	return Sound 
+end
+local Sound = createSound("rbxassetid://4398878054")
+Sound.Looped = false 
+Sound:Play() 
+game.Lighting.MainColorCorrection.TintColor = Color3.fromRGB(255, 0, 0)
+game.Lighting.MainColorCorrection.Contrast = 0.2
+game.Lighting.MainColorCorrection.Saturation = -0.7
+local tween = game:GetService("TweenService")
+tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
+tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
+local TweenService = game:GetService("TweenService")
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW:Play()
+wait(5)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -325,8 +321,7 @@ local tween = game:GetService("TweenService")
 tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
 tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
 TW:Play()
-wait(7)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(5.5)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
@@ -349,8 +344,7 @@ local tween = game:GetService("TweenService")
 tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Contrast = 0}):Play()
 tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(5), {Saturation = 0}):Play()
 TW:Play()
-wait(7)
-game.ReplicatedStorage.GameData.LatestRoom.Changed:Wait()
+wait(6)
 function createSound(id, volume, parent)
 	assert(id, "sound id wasn't given")
 	id = tostring(id):gsub("%D", "") --only keeping the numbers
