@@ -18,17 +18,68 @@ effect.Brightness=.5
 effect.TintColor=Color3.fromRGB(0, 183, 0)
 effect.Enabled=false
 effect.Name = "nv"
-activate.SoundId="http://roblox.com/asset/?id=131690369"
+activate.SoundId="http://roblox.com/asset/?id=376178316"
 activate.MaxDistance=150
 uis.InputBegan:Connect(function(began)
-	if began.KeyCode == Enum.KeyCode.T then
-		if not debounce then
+	if began.KeyCode == Enum.KeyCode.F then
+		if debounce == false then
 			debounce = true
+			local TweenService = game:GetService("TweenService")
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(0.01),{TintColor = Color3.fromRGB(0, 0, 0)})
+TW:Play()
+wait(0.1)
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(2),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW:Play()
+light.Range=1000
+light.Brightness=.2
+effect.Brightness=.5
 			game.Lighting.nv.Enabled=not game.Lighting.ColorCorrection.Enabled
 			light.Enabled=not light.Enabled
-			activate:Play()
-			wait(1.45)
+			function createSound(id, volume, parent)
+	assert(id, "sound id wasn't given")
+	id = tostring(id):gsub("%D", "") --only keeping the numbers
+	assert(id ~= "", "sound id isn't a number") 
+	volume = volume or 3 --0.5 is the default volume
+	parent = parent or workspace --workspace is the default parent
+	local Sound = Instance.new("Sound") 
+	Sound.SoundId = "rbxassetid://"..id 
+	Sound.Volume = volume 
+	Sound.Parent = parent 
+	return Sound 
+end
+local Sound = createSound("rbxassetid://376178316")
+Sound.Looped = false 
+Sound:Play()  
+
+			
+		elseif debounce == true then
 			debounce = false
+
+						local TweenService = game:GetService("TweenService")
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(0.01),{TintColor = Color3.fromRGB(0, 0, 0)})
+TW:Play()
+wait(0.1)
+local TW = TweenService:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1),{TintColor = Color3.fromRGB(255, 255, 255)})
+TW:Play()
+			game.Lighting.nv.Enabled=game.Lighting.ColorCorrection.Enabled
+			light.Enabled=light.Enabled
+			effect.Enabled=effect.Enabled
+			function createSound(id, volume, parent)
+	assert(id, "sound id wasn't given")
+	id = tostring(id):gsub("%D", "") --only keeping the numbers
+	assert(id ~= "", "sound id isn't a number") 
+	volume = volume or 3 --0.5 is the default volume
+	parent = parent or workspace --workspace is the default parent
+	local Sound = Instance.new("Sound") 
+	Sound.SoundId = "rbxassetid://"..id 
+	Sound.Volume = volume 
+	Sound.Parent = parent 
+	return Sound 
+end
+local Sound = createSound("rbxassetid://4448964198")
+Sound.Looped = false 
+Sound:Play()  
+
 		end
 	end
 end)
