@@ -1,4 +1,5 @@
-firesignal(game.ReplicatedStorage.Bricks.Caption.OnClientEvent, "Night Vision Goggles activated..")
+wait(2)
+firesignal(game.ReplicatedStorage.EntityInfo.Caption.OnClientEvent, "Night Vision Goggles Is Ready To Use!")
 local unuseditems = Instance.new("Folder")
 unuseditems.Parent = workspace
 unuseditems.Name = "Unused"
