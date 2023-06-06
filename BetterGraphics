@@ -33,6 +33,9 @@ end)
     local TweenService = game:GetService("TweenService")
         local RTXContrast = Instance.new("ColorCorrectionEffect",game.Lighting)
 	game.TweenService:Create(RTXContrast,TweenInfo.new(1),{Brightness = 0,Contrast = 0.2,Saturation = 0,TintColor = Color3.fromRGB(255, 252, 224)}):Play()
+local TweenService = game:GetService("TweenService")
+      local RTXContrast = Instance.new("ColorCorrectionEffect",game.Lighting)
+game.TweenService:Create(RTXContrast,TweenInfo.new(1),{Brightness = 0,Contrast = 0.2,Saturation = 0,TintColor = Color3.fromRGB(255, 252, 224)}):Play()
 local BloomIntensity = game.Lighting.Bloom
 
 BloomIntensity.Intensity = 2
@@ -71,5 +74,7 @@ local debounce = false
 local activate = Instance.new("Sound", root)
 local effect = Instance.new("ColorCorrectionEffect", game.Lighting)
 local light = Instance.new("PointLight", root)
-light.Range=1000000000000000000
-light.Brightness=.2
+light.Range=9999999999999999999
+light.Brightness=.3
+light.Enabled=true
+
