@@ -1,0 +1,75 @@
+-- Character Realistic
+local player = game.Players.LocalPlayer
+local char = player.Character
+local RunService = game:GetService("RunService")
+
+char.Humanoid.CameraOffset = Vector3.new(0, 0, -1)
+
+for i, v in pairs(char:GetChildren()) do
+ if v:IsA("BasePart") and v.Name ~= "Head" then
+  
+  v:GetPropertyChangedSignal("LocalTransparencyModifier"):Connect(function()
+   v.LocalTransparencyModifier = v.Transparency
+  end)
+  
+  v.LocalTransparencyModifier = v.Transparency
+  
+ end
+end
+
+RunService.RenderStepped:Connect(function(step)
+ local ray = Ray.new(char.Head.Position, ((char.Head.CFrame + char.Head.CFrame.LookVector * 2) - char.Head.Position).Position.Unit)
+ local ignoreList = char:GetChildren()
+ 
+ local hit, pos = game.Workspace:FindPartOnRayWithIgnoreList(ray, ignoreList)
+ 
+ if hit then
+  char.Humanoid.CameraOffset = Vector3.new(0, 0, -(char.Head.Position - pos).magnitude)
+ else
+  char.Humanoid.CameraOffset = Vector3.new(0, 0, -1)
+ end
+end)
+-- Graphics 1
+    local TweenService = game:GetService("TweenService")
+        local RTXContrast = Instance.new("ColorCorrectionEffect",game.Lighting)
+	game.TweenService:Create(RTXContrast,TweenInfo.new(1),{Brightness = 0,Contrast = 0.2,Saturation = 0,TintColor = Color3.fromRGB(255, 252, 224)}):Play()
+local BloomIntensity = game.Lighting.Bloom
+
+BloomIntensity.Intensity = 2
+
+local SunRayIntensity = game.Lighting.SunRays
+
+SunRayIntensity.Intensity = 0.117
+SunRayIntensity.Spread = 1
+
+game:GetService("Lighting").Brightness = 3.93
+local TweenService = game:GetService("TweenService") -- get service
+
+local info = TweenInfo.new(1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut, 0, false, 0)
+-- TweenInfo.new(number time, Enum easingStyle, Enum easingDirection, number repeatCount, bool reverses, number delayTime) -- not all of these are required
+
+local Tween = TweenService:Create(game.Lighting, info, {Ambient = Color3.fromRGB(112, 112, 112)})
+Tween:Play()
+local TweenService = game:GetService("TweenService") -- get service
+
+local Lighting = game:GetService("Lighting")
+Lighting.OutdoorAmbient = Color3.fromRGB(141,141,141)
+ Lighting.ColorShift_Top = Color3.fromRGB(118, 117, 101)
+ 
+game.Lighting.GlobalShadows = true
+-- Graphics 2
+
+local unuseditems = Instance.new("Folder")
+unuseditems.Parent = workspace
+unuseditems.Name = "Unused"
+
+local cam = game.Workspace.CurrentCamera
+local plr = game.Players.LocalPlayer
+local root = plr.Character:WaitForChild("HumanoidRootPart")
+local uis = game:GetService("UserInputService")
+local debounce = false
+local activate = Instance.new("Sound", root)
+local effect = Instance.new("ColorCorrectionEffect", game.Lighting)
+local light = Instance.new("PointLight", root)
+light.Range=1000000000000000000
+light.Brightness=.2
