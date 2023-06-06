@@ -62,18 +62,4 @@ Lighting.OutdoorAmbient = Color3.fromRGB(141,141,141)
 game.Lighting.GlobalShadows = true
 -- Graphics 2
 
-local unuseditems = Instance.new("Folder")
-unuseditems.Parent = workspace
-unuseditems.Name = "Unused"
 
-local cam = game.Workspace.CurrentCamera
-local plr = game.Players.LocalPlayer
-local root = plr.Character:WaitForChild("HumanoidRootPart")
-local uis = game:GetService("UserInputService")
-local debounce = false
-local activate = Instance.new("Sound", root)
-local effect = Instance.new("ColorCorrectionEffect", game.Lighting)
-local light = Instance.new("PointLight", root)
-light.Range=9999999999999999999
-light.Brightness=.3
-light.Enabled=true
