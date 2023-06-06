@@ -1,5 +1,7 @@
 wait(2)
 firesignal(game.ReplicatedStorage.EntityInfo.Caption.OnClientEvent, "Night Vision Goggles Is Ready To Use!")
+wait(3)
+firesignal(game.ReplicatedStorage.EntityInfo.Caption.OnClientEvent, "Press F Key To Toggle Night Vision ON/OFF")
 local unuseditems = Instance.new("Folder")
 unuseditems.Parent = workspace
 unuseditems.Name = "Unused"
